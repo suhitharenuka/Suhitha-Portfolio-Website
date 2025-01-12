@@ -45,7 +45,6 @@
                 0.05em 0 var(--glitch-primary),
                 -0.05em 0.02em var(--glitch-secondary);
             animation: glitch-anim 2s infinite linear alternate-reverse;
-            text-align: center;
         }
 
         @keyframes glitch-anim {
@@ -85,68 +84,6 @@
                     0.05em 0.05em var(--glitch-primary);
             }
         }
-        .skills {
-            padding: 4rem 2rem;
-            background: #1a1a1a;
-            color: #fff;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #fff;
-            position: relative;
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .skill-category {
-            margin-bottom: 3rem;
-        }
-        .category-title {
-            color: #4a90e2;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .skill-item {
-            background: #2a2a2a;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .skill-item i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-item p {
-            margin: 0;
-            font-size: 1rem;
-            color: #fff;
-        }
-
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        
-
-        @media (max-width: 768px) {
-            .skill-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
-            }
-        }
 
         /* Navigation */
         nav {
@@ -163,6 +100,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
+            transition: max-height 0.3s ease-in-out;
         }
 
         nav ul li a {
@@ -170,18 +108,56 @@
             text-decoration: none;
             margin: 0 1rem;
             transition: color 0.3s ease;
-        }
+        }r
 
         nav ul li a:hover {
             color: var(--neon-pink);
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            cursor: pointer;
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 26, 0.9);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul.active {
+                max-height: 500px; /* Arbitrary large value to allow menu expansion */
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: url('/api/placeholder/1920/1080');
-            background-size: cover;
-            background-position: center;
+            background-color: #0a0a1a; /* You can change this to any background color you prefer */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -189,7 +165,9 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
+}
+
+
 
         .hero::before {
             content: '';
@@ -212,6 +190,20 @@
             color: var(--neon-pink);
             font-size: 1.5rem;
             z-index: 10;
+        }
+
+
+        .about h3{
+            padding: 2rem 0;
+        }
+
+        .about-me {
+            padding: 2rem 0;
+            height: 30vh;
+        }
+
+        .about-me h2{
+            padding: 2rem 0;
         }
 
         /* Timeline Styles */
@@ -245,14 +237,71 @@
             color: var(--neon-pink);
         }
 
+        .skills {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            border-color: var(--neon-pink);
+        }
+
+        .skill-item i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+
         /* Projects */
+        .projects{
+            height:80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
         .project-container {
+            margin-top:50px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 2rem;
-            text-align: center;
         }
 
         .project-card {
@@ -269,12 +318,6 @@
             border-color: var(--neon-pink);
         }
 
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
         .contact{
             display: flex;
             justify-content: center;
@@ -282,19 +325,6 @@
             flex-direction: column;
             height: 50vh;
         }
-        .contact-links a:hover {
-    color: var(--neon-pink) !important;
-    transform: translateY(-3px);
-    text-shadow: 0 0 8px var(--neon-pink);
-}
-
-        .contact-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
-}
 
         /* Footer */
         footer {
@@ -307,67 +337,28 @@
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
-                display: none;
-            }
-
-            nav ul.active {
-                display: flex;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 10, 26, 0.9);
+                align-items: center;
             }
-
             nav ul li {
-                margin: 1rem 0;
-                text-align: center;
+                margin: 10px 0;
+            }
+            .projects{
+                height:auto;
             }
 
-            .hamburger {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .project-card {
-                width: 100%;
-            }
         }
-        .about h3{
-            padding: 2rem 0;
+
+        /* Centering Text and Elements Globally */
+        .container, .skills, .projects, .contact, footer, .about {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        /* Optional: Adjust Hero Section Text Alignment */
+        .hero h1, .hero p {
             text-align: center;
         }
-
-        .about-me {
-            padding: 2rem 0;
-            height: 30vh;
-            text-align: center;
-        }
-
-        .about-me h2{
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .digital-creations {
-    height: 100vh;  /* Full viewport height */
-    display: flex;
-    justify-content: center;  /* Horizontally center */
-    align-items: center;      /* Vertically center */
-    background-color: var(--dark-bg); /* Optional, for background */
-}
-
-        .digital-creations h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    color: var(--neon-blue);
-    text-align: center;
-    animation: glitch-anim 2s infinite linear alternate-reverse; /* Optional glitch effect */
-}
-
     </style>
 </head>
 <body>
@@ -388,8 +379,9 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <h1 class="glitch">Suhitha Renuka S V</h1>
-        <p class="glitch">Fresher | 2025 Graduate</p>
+        <p class="glitch">Fresher | 2025 Graduate </p>
     </section>
+    
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -402,11 +394,39 @@
             
             <h3>Work Experience</h3>
             <div class="timeline">
-            
                 <div class="timeline-item">
                     <h3>Software Engineer-Intern</h3>
-                    <h2>Welldoc Software Pvt Ltd (Aug 2023 - Nov 2023)</h2>
-                    <h4>Product-Based Company in the Healthcare Industry:</h4>
+                    <p>MedxAI Innovations Pvt Ltd ( March 2024 - Dec 2024)</p>
+                    <h2>Focus on preventive oncology.</h2>
+                    <ul>
+                        
+                        <li>
+                            <strong>IV Skin Detect Project: </strong> Collected and processed <strong>500 images</strong>, achieving <strong>85% accuracy</strong>
+                            in classifying skin conditions for assistance in remote monitoring.
+                            
+                        </li>
+                        <li>
+                            Integration with <strong>Ibhar Healthcare </strong>& <strong>Ramachandra Medical College Chennai </strong> for cloud integration and clinical testing.
+                            
+                        </li>
+                        <li>
+                            Implemented an <strong>Audiometry Testing Module</strong> for the <strong>ASHA+ device</strong> to assess hearing thresholds.
+                    
+                        </li>
+                        <li>
+                            Systematic testing thresholds across <strong>7 standard frequencies </strong>and <strong>12 intensity levels</strong> per ear.
+
+                        </li>
+                        <li>
+                            Reduced manual test duration by <strong>50%</strong>.
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Software Engineer-Intern</h3>
+                    <p>Welldoc Software Pvt Ltd (Aug 2023 - Nov 2023)</p>
+                    <h2>Product-Based Company in the Healthcare Industry:</h2>
                     <ul>
                         <li>
                             Designed and managed a <strong>Data Converter Module</strong> in C# to transform CMS data into Welldoc’s format 
@@ -440,134 +460,60 @@
         </div>
     </section>
 
-
     <!-- Skills Section -->
-    <section class="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        
-        <!-- Programming Languages -->
-        <div class="skill-category">
-            <h3 class="category-title">Programming Languages</h3>
-            <div class="skill-grid">
-                <div class="skill-item">
-                    <i class="fab fa-python" style="color: #3776AB;"></i>
-                    <p>Python</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-code" style="color: #00599C;"></i>
-                    <p>C++</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-code" style="color: #178600;"></i>
-                    <p>C#</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database" style="color: #00758F;"></i>
-                    <p>MySQL</p>
-                </div>
+    <section id="skills" class="skills">
+        <h2 class="glitch">Tech Arsenal</h2>
+        <div class="skill-grid">
+            <div class="skill-item">
+                <i class="fab fa-python" style="color: #3776AB;"></i>
+                <p>Python</p>
             </div>
-        </div>
-
-        <!-- Web Development -->
-        <div class="skill-category">
-            <h3 class="category-title">Web Development</h3>
-            <div class="skill-grid">
-                <div class="skill-item">
-                    <i class="fab fa-html5" style="color: #E34F26;"></i>
-                    <p>HTML</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt" style="color: #264DE4;"></i>
-                    <p>CSS</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-react" style="color: #61DAFB;"></i>
-                    <p>React</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-node-js" style="color: #339933;"></i>
-                    <p>Node.js</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-server" style="color: #68B04D;"></i>
-                    <p>MERN Stack</p>
-                </div>
+            <div class="skill-item">
+                <i class="fas fa-code" style="color: #00599C;"></i>
+                <p>C++</p>
             </div>
-        </div>
-
-        <!-- Technologies & Tools -->
-        <div class="skill-category">
-            <h3 class="category-title">Technologies & Tools</h3>
-            <div class="skill-grid">
-                <div class="skill-item">
-                    <i class="fab fa-microsoft" style="color: #0078D4;"></i>
-                    <p>Azure</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-windows" style="color: #0078D7;"></i>
-                    <p>.NET</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-chart-bar" style="color: #CB6D51;"></i>
-                    <p>Power BI</p>
-                </div>
+            <div class="skill-item">
+                <i class="fab fa-microsoft" style="color: #68217A;"></i>
+                <p>.NET</p>
             </div>
-        </div>
-
-        <!-- Computer Science Fundamentals -->
-        <div class="skill-category">
-            <h3 class="category-title">CS Fundamentals</h3>
-            <div class="skill-grid">
-                <div class="skill-item">
-                    <i class="fas fa-laptop-code" style="color: #FFD700;"></i>
-                    <p>DSA</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database" style="color: #FF6B6B;"></i>
-                    <p>DBMS</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-network-wired" style="color: #4ED8E8;"></i>
-                    <p>Computer Networks</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-desktop" style="color: #98FF98;"></i>
-                    <p>Operating Systems</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-code-branch" style="color: #FF69B4;"></i>
-                    <p>OOPS</p>
-                </div>
+            <div class="skill-item">
+                <i class="fab fa-microsoft" style="color: #0078D7;"></i>
+                <p>Azure Cloud</p>
             </div>
+            <div class="skill-item">
+                <i class="fas fa-code" style="color: #178600;"></i>
+                <p>C#</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-robot" style="color: #F7DF1E;"></i>
+                <p>Machine Learning</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-bar" style="color: #CB6D51;"></i>
+                <p>Power BI</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-html5" style="color: #E34F26;"></i>
+                <p>HTML</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt" style="color: #264DE4;"></i>
+                <p>CSS</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js-square" style="color: #F0DB4F;"></i>
+                <p>JavaScript</p>
+            </div>
+            
         </div>
     </section>
+    
 
     <!-- Projects Section -->
-<section id="projects" class="projects">
-    <h2 class="glitch">Digital Creations</h2>
-    <div class="project-container">
-        <!-- Book Store Project -->
-        <div class="project-card">
-            <img src="mern_image.webp" alt="Book Store Project">
-            <h3>Book Store Project - MERN Stack</h3>
-            <p>Tech Stack: MERN (MongoDB, Express.js, React, Node.js)</p>
-            <p>Created an interactive Book Store application using the MERN stack. </p>
-            <p>Implemented Backend CRUD operations, Backend Router, CORS policy, MongoDB operations, as well as Frontend CRUD and Frontend Router functionalities.</p>
-        </div>
-
-        <!-- Portfolio Website -->
-        <div class="project-card">
-            <img src="portfolio2..jpeg" alt="Portfolio Website">
-            <h3>My Portfolio Website</h3>
-            <p>Tech Stack: HTML, CSS, JavaScript</p>
-            <p>Designed and developed a responsive portfolio website showcasing my personal projects, skills, and experiences using HTML, CSS, and JavaScript. Optimized for mobile and desktop with smooth scrolling and adaptive layouts.</p>
-        </div>
-
-        <!-- Student Management System -->
+    <section id="projects" class="projects">
+        <h2 class="glitch">Digital Creations</h2>
+        <div class="project-container">
+            <!-- Student Management System -->
         <div class="project-card">
             <img src="sms2.png" alt="Student Management System">
             <h3>Python Student Management System</h3>
@@ -579,51 +525,29 @@
                 <li>Data export to Excel for easy data handling and report generation</li>
             </ul>
         </div>
-
-        <!-- Audiometry Testing Module -->
-        <div class="project-card">
-            <img src="audio_image.jpg" alt="Audiometry Testing Module">
-            <h3>Audiometry Testing Module</h3>
-            <p>Tech Stack: Python, sounddevice</p>
-            <p>Implemented an Audiometry Testing Module for the ASHA+ device to assess hearing thresholds. Key features include:</p>
-            <ul>
-                <li>Systematic testing of thresholds across 7 standard frequencies</li>
-                <li>Assessment at 12 intensity levels per ear</li>
-                <li>Reduced manual test duration by 50%</li>
-            </ul>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Pinnacle Ecommerce Sales Dashboard">
+                <h3>Pinnacle Ecommerce Sales Dashboard</h3>
+                <p>Interactive Power BI dashboard to analyze online sales data using advanced visualizations.</p>
+                
+            </div>
+            <div class="project-card">
+                <img src="project3.jpg" alt="Portfolio Website">
+                <h3>Portfolio Website</h3>
+                <p>Designed and developed a responsive portfolio website showcasing personal projects, skills, and experiences using HTML, CSS, and JavaScript. Optimized for mobile and desktop with smooth scrolling and adaptive layouts.</p>
+                
+            </div>
         </div>
-
-
-        <!-- Pinnacle Ecommerce Sales Dashboard -->
-       
-        <div class="project-card">
-            <img src="behance.png" alt="Pinnacle Ecommerce Sales Dashboard">
-            <h3>Pinnacle Ecommerce Sales Dashboard</h3>
-            <p>Tech Stack: Power BI</p>
-            <p>Created an interactive Power BI dashboard to track and analyze online sales data. Key features include:</p>
-            <ul>
-                <li>Integrated data through table joins and calculations</li>
-                <li>Enabled user-driven parameters for dynamic analysis</li>
-                <li>Utilized bar and donut charts for clear visualization of insights</li>
-            </ul>
-        </div>
-
-</section>
-
+    </section>
+    
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2 class="glitch">Establish Connection</h2>
         <div class="contact-links">
-            <a href="mailto:suhitharenuka@gmail.com" style="color: var(--neon-blue); text-decoration: none; font-size: 1.2rem; margin: 1rem; display: inline-block; transition: all 0.3s ease;">
-                <i class="fas fa-envelope"></i> Email Me
-            </a>
-            <a href="https://www.linkedin.com/in/suhitha-renuka-12b37025a/" style="color: var(--neon-blue); text-decoration: none; font-size: 1.2rem; margin: 1rem; display: inline-block; transition: all 0.3s ease;">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/suhitharenuka" style="color: var(--neon-blue); text-decoration: none; font-size: 1.2rem; margin: 1rem; display: inline-block; transition: all 0.3s ease;">
-                <i class="fab fa-github"></i> GitHub
-            </a>
+            <a href="mailto:suhitharenuka@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/in/suhitha-renuka-12b37025a/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/suhitharenuka?tab=repositories"><i class="fab fa-github"></i> GitHub</a>
         </div>
     </section>
 
@@ -632,38 +556,60 @@
         <p>&copy; Suhitha Renuka S V | Portfolio</p>
     </footer>
 
-
-    <!-- GSAP Scripts -->
+    <!-- GSAP and ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <script>
-        // GSAP Animations
+        // GSAP Scroll Animations
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate sections on scroll
+        // Sections to animate
         const sections = ['#about', '#skills', '#projects', '#contact'];
-        
+
         sections.forEach(section => {
             gsap.from(section, {
                 scrollTrigger: {
                     trigger: section,
-                    start: "top center",
-                    toggleActions: "play none none reverse"
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
                 },
                 opacity: 0,
                 y: 50,
                 duration: 1,
-                ease: "power2.out"
+                ease: 'power2.out'
             });
         });
 
-        // Hamburger menu functionality
+        // Glitch effect for titles
+        const glitchElements = document.querySelectorAll('.glitch');
+        glitchElements.forEach(el => {
+            el.addEventListener('mouseover', () => {
+                el.style.animation = 'glitch-anim 0.5s infinite linear alternate-reverse';
+            });
+            el.addEventListener('mouseout', () => {
+                el.style.animation = 'none';
+            });
+        });
+
+        // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('nav ul');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            // Toggle hamburger icon between bars and times
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close the menu when a link is clicked (optional)
+        const navItems = document.querySelectorAll('nav ul li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.querySelector('i').classList.remove('fa-times');
+                }
+            });
         });
     </script>
 </body>
