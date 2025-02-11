@@ -40,12 +40,10 @@
 
         /* Glitch Effects */
         .glitch {
-            position: relative;
-            text-shadow: 
-                0.05em 0 var(--glitch-primary),
-                -0.05em 0.02em var(--glitch-secondary);
-            animation: glitch-anim 2s infinite linear alternate-reverse;
-        }
+    margin-bottom: 40px; /* Adjust as needed */
+    position: relative;
+    z-index: 10;
+}
 
         @keyframes glitch-anim {
             0% {
@@ -125,6 +123,16 @@
             top: 50%;
             transform: translateY(-50%);
         }
+        .projects .tech-stack-label {
+    color: #00eaff; /* Electric Cyan */
+    font-weight: bold;
+}
+        .projects .tech-stack-content {
+    color: #33dfff; /* Softer Neon Cyan */
+    font-weight: bold;
+}
+
+
 
         /* Responsive Navigation */
         @media (max-width: 768px) {
@@ -284,6 +292,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding-top: 50px;
         }
         .project-card img {
             width: 100%;
@@ -296,14 +305,7 @@
             transform: scale(1.1);
         }
 
-        .project-container {
-            margin-top:50px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
+        
         .project-card {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid var(--neon-blue);
@@ -325,6 +327,13 @@
             flex-direction: column;
             height: 50vh;
         }
+
+        .tech-stack {
+    color: var(--neon-blue); /* Change this to another neon color if needed */
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--glitch-secondary);
+    }
+
 
         /* Footer */
         footer {
@@ -348,6 +357,24 @@
             }
 
         }
+        
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Adds spacing between cards */
+            margin-top: 300px; /* Pushes projects down */
+}
+        
+
+
+        .projects strong {
+    color: var(--neon-pink);
+    }
+    .establish-connection{
+        margin-bottom: 1px;
+    }
+
 
         /* Centering Text and Elements Globally */
         .container, .skills, .projects, .contact, footer, .about {
@@ -359,6 +386,15 @@
         .hero h1, .hero p {
             text-align: center;
         }
+        .section {
+    padding: 5rem 0; /* Increases space between sections */
+}
+        .digital-creations {
+            position: absolute;
+            top: 50px; /* Move it down */
+}
+
+
     </style>
 </head>
 <body>
@@ -395,7 +431,7 @@
             <h3>Work Experience</h3>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Software Engineer-Intern</h3>
+                    <h3>AI-ML Intern</h3>
                     <p>MedxAI Innovations Pvt Ltd ( March 2024 - Dec 2024)</p>
                     <h2>Focus on preventive oncology.</h2>
                     <ul>
@@ -409,17 +445,7 @@
                             Integration with <strong>Ibhar Healthcare </strong>& <strong>Ramachandra Medical College Chennai </strong> for cloud integration and clinical testing.
                             
                         </li>
-                        <li>
-                            Implemented an <strong>Audiometry Testing Module</strong> for the <strong>ASHA+ device</strong> to assess hearing thresholds.
-                    
-                        </li>
-                        <li>
-                            Systematic testing thresholds across <strong>7 standard frequencies </strong>and <strong>12 intensity levels</strong> per ear.
-
-                        </li>
-                        <li>
-                            Reduced manual test duration by <strong>50%</strong>.
-                        </li>
+                        
 
                     </ul>
                 </div>
@@ -460,81 +486,104 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 class="glitch">Tech Arsenal</h2>
-        <div class="skill-grid">
-            <div class="skill-item">
-                <i class="fab fa-python" style="color: #3776AB;"></i>
-                <p>Python</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-code" style="color: #00599C;"></i>
-                <p>C++</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-microsoft" style="color: #68217A;"></i>
-                <p>.NET</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-microsoft" style="color: #0078D7;"></i>
-                <p>Azure Cloud</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-code" style="color: #178600;"></i>
-                <p>C#</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-robot" style="color: #F7DF1E;"></i>
-                <p>Machine Learning</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-chart-bar" style="color: #CB6D51;"></i>
-                <p>Power BI</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-html5" style="color: #E34F26;"></i>
-                <p>HTML</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-css3-alt" style="color: #264DE4;"></i>
-                <p>CSS</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-js-square" style="color: #F0DB4F;"></i>
-                <p>JavaScript</p>
-            </div>
-            
+   <!-- Skills Section -->
+<section id="skills" class="skills">
+    <h2 class="glitch">Tech Arsenal</h2>
+    <div class="skill-grid">
+        <div class="skill-item">
+            <i class="fab fa-python" style="color: #3776AB;"></i>
+            <p>Python</p>
         </div>
-    </section>
-    
+        <div class="skill-item">
+            <i class="fas fa-code" style="color: #00599C;"></i>
+            <p>C++</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-database" style="color: #4479A1;"></i>
+            <p>SQL</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-chart-bar" style="color: #CB6D51;"></i>
+            <p>Power BI</p>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-microsoft" style="color: #0078D7;"></i>
+            <p>Microsoft Azure</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-fire" style="color: #FF6F00;"></i>
+            <p>Flask</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-server" style="color: #092E20;"></i>
+            <p>Django</p>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-html5" style="color: #E34F26;"></i>
+            <p>HTML</p>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-css3-alt" style="color: #264DE4;"></i>
+            <p>CSS</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-cogs" style="color: #808080;"></i>
+            <p>Data Structures & OOPs</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-robot" style="color: #F7DF1E;"></i>
+            <p>Machine Learning & AI</p>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-server" style="color: #6C757D;"></i>
+            <p>Basic Backend Knowledge</p>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 class="glitch">Digital Creations</h2>
+        <h2 class="digital-creations">Digital Creations</h2>
         <div class="project-container">
             <!-- Student Management System -->
         <div class="project-card">
             <img src="sms2.png" alt="Student Management System">
             <h3>Python Student Management System</h3>
-            <p>Tech Stack: Python, Tkinter, MySQL</p>
-            <p>Developed a GUI-based application using Python and Tkinter for managing student records. Key features include:</p>
-            <ul>
-                <li>Login functionality</li>
-                <li>Adding, updating, viewing, searching, and removing student records</li>
-                <li>Data export to Excel for easy data handling and report generation</li>
-            </ul>
+            <div>
+                <strong><span class="tech-stack-label">Tech Stack:</span></strong>
+                <span class="tech-stack-content">Python, SQL</span>
+            </div>
+            <br>
+
+
+            <p>Developed a <strong>GUI-based Application</strong> for managing student records, featuring functionalities for <strong>login</strong>, <strong>adding</strong>, <strong>updating</strong> and <strong>viewing</strong>, <strong>searching</strong>, and <strong> deleting</strong> students. </p>
+                 
         </div>
             <div class="project-card">
-                <img src="project2.jpg" alt="Pinnacle Ecommerce Sales Dashboard">
-                <h3>Pinnacle Ecommerce Sales Dashboard</h3>
-                <p>Interactive Power BI dashboard to analyze online sales data using advanced visualizations.</p>
+                <img src="project2.jpg" alt="To-Do Web Application">
+                <h3>To-Do Web Application</h3>
+                <div>
+                    <strong><span class="tech-stack-label">Tech Stack:</span></strong>
+                    <span class="tech-stack-content">Python, Flask, HTML</span>
+                </div>
+                <br>
+                <p>Developed a <strong>full-stack to-do list web application</strong> using <strong>Flask</strong> for <strong>logic.</strong> </p>
+                <p> Implemented <strong>CRUD operations (Create, Read, Update, Delete)</strong> for task management.</p>
                 
             </div>
             <div class="project-card">
-                <img src="project3.jpg" alt="Portfolio Website">
-                <h3>Portfolio Website</h3>
-                <p>Designed and developed a responsive portfolio website showcasing personal projects, skills, and experiences using HTML, CSS, and JavaScript. Optimized for mobile and desktop with smooth scrolling and adaptive layouts.</p>
+                <img src="netflix.png" alt="Netflix Dataset analysis">
+                
+                <h3>Netflix Dataset analysis</h3>
+                <div>
+                    <strong><span class="tech-stack-label">Tech Stack:</span></strong>
+                    <span class="tech-stack-content">PowerBI</span>
+                </div>
+                <br>
+                <p><strong>Conducted</strong> <strong>comprehensive data cleaning</strong> and <strong>exploratory data analysis</strong> on a dataset of <strong>8,807</strong> Netflix movies and TV shows using <strong>Power BI</strong>, enhancing <strong>data integrity</strong> and revealing <strong>actionable insights</strong> to inform <strong>content strategy.</strong></p>
+
                 
             </div>
         </div>
@@ -543,7 +592,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2 class="glitch">Establish Connection</h2>
+        <h2 class="establish-connection">Establish Connection</h2>
         <div class="contact-links">
             <a href="mailto:suhitharenuka@gmail.com"><i class="fas fa-envelope"></i> Email</a>
             <a href="https://www.linkedin.com/in/suhitha-renuka-12b37025a/"><i class="fab fa-linkedin"></i> LinkedIn</a>
